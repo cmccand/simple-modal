@@ -1,0 +1,60 @@
+.button {
+  position: relative;
+  border: 1px solid undefined;
+  background: initial;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  color: #005CB9;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: Roboto, Helvetica, sans-serif;
+  height: 32px;
+  padding: 0 16px;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.button {
+  &:hover {
+    &:not(:disabled):not(:active) {
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.button {
+  &:active {
+    &:not(:disabled) {
+      background-color: #FFFFFF;
+      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3) inset;
+    }
+  }
+}
+
+.primary {
+  background-color: #005CB9;
+  border-color: #005CB9;
+  color: #FFFFFF;
+}
+
+.primary {
+  &:hover {
+    &:not(:disabled) {
+      background-color: #004A94;
+      border: 1px solid #004A94;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.primary {
+  &:active {
+    &:not(:disabled) {
+      background-color: #004A94;
+      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3) inset;
+    }
+  }
+}
