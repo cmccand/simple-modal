@@ -6,3 +6,22 @@
   position: fixed;
   background: rgba(0, 0, 0, .65);
 }
+
+.modal {
+  background: white;
+  text-align: left;
+  max-width: 550px;
+  max-height: 500px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.content {
+  overflow-y: auto;
+}
+
+.buttonContainer {
+  padding: 10px;
+  border-top: 1px solid lightgrey;
+  text-align: left;
+}

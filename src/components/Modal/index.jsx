@@ -6,12 +6,12 @@ import styles from './index.module.scss';
 
 const renderButtons = buttons => buttons.map(btn => <Button {...btn} />);
 
-const Modal = ({ title, children, buttons, onClose}) => {
+const Modal = ({ title, content, buttons, onClose}) => {
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
-        { title ? <h5>{ title }</h5> : false }
-        { children }
+        { title ? <h5 className={styles.title}>{ title }</h5> : false }
+        { content ? <p className={styles.content}>{ content }</p> : false }
         {
           buttons
             ? (

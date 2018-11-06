@@ -1,6 +1,9 @@
+$base-button-margin: 8px;
+
 .button {
   position: relative;
   border: 1px solid undefined;
+  margin: $base-button-margin;
   background: initial;
   background-color: #FFFFFF;
   border-radius: 3px;
