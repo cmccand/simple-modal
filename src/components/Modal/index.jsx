@@ -1,39 +1,49 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
+// Components
 import Button from '../Button';
 
-import classNames from 'classnames';
-
+// Styles
 import styles from './index.module.scss';
 
-const renderButtons = buttons => buttons.map(btn => <Button {...btn} />);
+const renderButtons = buttons => buttons.map((btn, i) => <Button {...btn} key={i} />);
 
-const Modal = ({ title, children, buttons, isOpen, onClose}) => {
-  const modalClass = isOpen ? 'open' : 'closed';
-  return (
-    isOpen
-      ? (
-        <div className={styles.container}>
-          <div className={classNames(styles.modal, styles[modalClass])}>
-            { title ? <h5 className={styles.title}>{ title }</h5> : false }
-            <div className={styles.content}>
-              { children }
+const Modal = ({ title, children, buttons }) => (
+  <div className={styles.container}>
+    <div className={styles.modal}>
+      { title ? <h5 className={styles.title}>{ title }</h5> : false }
+      <div className={styles.content}>
+        { children }
+      </div>
+      {
+        buttons
+          ? (
+            <div className={styles.buttonContainer}>
+              { renderButtons(buttons) }
             </div>
-            {
-              buttons
-                ? (
-                  <div className={styles.buttonContainer}>
-                    { renderButtons(buttons) }
-                  </div>
-                )
-                : false
-            }
-          </div>
+          )
+          : false
+      }
+    </div>
+  </div>
+);
 
-        </div>
-      )
-    : false
-  );
+Modal.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  buttons: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string,
+      label: PropTypes.string,
+      onClick: PropTypes.func
+    })
+  )
+};
+
+Modal.defaultProps = {
+  title: '',
+  buttons: null
 };
 
 export default Modal;

@@ -13,9 +13,6 @@
   max-width: 550px;
   padding: 16px;
   margin: 100px auto 0 auto;
-}
-
-.open {
   animation: slide-down .3s forwards ease;
 }
 
@@ -36,14 +33,5 @@
   }
   to {
     margin-top: 100px;
-  }
-}
-
-@keyframes slide-up {
-  from {
-    margin-top: 100px;
-  }
-  to {
-    margin-top: -500px;
   }
 }
