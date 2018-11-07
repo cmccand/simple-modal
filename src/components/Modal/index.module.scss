@@ -11,17 +11,39 @@
   background: white;
   text-align: left;
   max-width: 550px;
-  max-height: 500px;
-  margin: 0 auto;
   padding: 16px;
+  margin: 100px auto 0 auto;
+}
+
+.open {
+  animation: slide-down .3s forwards ease;
 }
 
 .content {
   overflow-y: auto;
+  max-height: 300px;
 }
 
 .buttonContainer {
   padding: 10px;
   border-top: 1px solid lightgrey;
   text-align: left;
+}
+
+@keyframes slide-down {
+  from {
+    margin-top: -500px;
+  }
+  to {
+    margin-top: 100px;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    margin-top: 100px;
+  }
+  to {
+    margin-top: -500px;
+  }
 }

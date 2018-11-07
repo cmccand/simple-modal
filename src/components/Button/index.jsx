@@ -6,9 +6,9 @@ import classNames from 'classnames';
 // Styles
 import styles from './index.module.scss';
 
-const Button = ({ type, label, onClick }) => (
+const Button = ({ type, label, onClick, className }) => (
   <button
-    className={classNames(styles.button, styles[type])}
+    className={classNames(styles.button, styles[type], className)}
     onClick={onClick}
   >
     { label }

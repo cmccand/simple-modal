@@ -2,28 +2,37 @@ import React from 'react';
 
 import Button from '../Button';
 
+import classNames from 'classnames';
+
 import styles from './index.module.scss';
 
 const renderButtons = buttons => buttons.map(btn => <Button {...btn} />);
 
-const Modal = ({ title, content, buttons, onClose}) => {
+const Modal = ({ title, children, buttons, isOpen, onClose}) => {
+  const modalClass = isOpen ? 'open' : 'closed';
   return (
-    <div className={styles.container}>
-      <div className={styles.modal}>
-        { title ? <h5 className={styles.title}>{ title }</h5> : false }
-        { content ? <p className={styles.content}>{ content }</p> : false }
-        {
-          buttons
-            ? (
-              <div className={styles.buttonContainer}>
-                { renderButtons(buttons) }
-              </div>
-            )
-            : false
-        }
-      </div>
+    isOpen
+      ? (
+        <div className={styles.container}>
+          <div className={classNames(styles.modal, styles[modalClass])}>
+            { title ? <h5 className={styles.title}>{ title }</h5> : false }
+            <div className={styles.content}>
+              { children }
+            </div>
+            {
+              buttons
+                ? (
+                  <div className={styles.buttonContainer}>
+                    { renderButtons(buttons) }
+                  </div>
+                )
+                : false
+            }
+          </div>
 
-    </div>
+        </div>
+      )
+    : false
   );
 };
 
